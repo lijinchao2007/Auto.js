@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.jakewharton.butterknife'
-apply plugin: 'kotlin-kapt'
+//apply plugin: 'kotlin-kapt'
 
 
 def AAVersion = '4.5.2'
@@ -119,13 +119,13 @@ dependencies {
     // Kotlin
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.1"
     // Android Annotations
-    kapt "org.androidannotations:androidannotations:$AAVersion"
+    annotationProcessor "org.androidannotations:androidannotations:$AAVersion"
     implementation "org.androidannotations:androidannotations-api:$AAVersion"
     // ButterKnife
-    implementation('com.jakewharton:butterknife:10.2.3', {
+    implementation('com.jakewharton:butterknife:9.0.0-rc2', {
         exclude group: 'com.android.support'
     })
-    kapt 'com.jakewharton:butterknife-compiler:10.2.3'
+    kapt 'com.jakewharton:butterknife-compiler:9.0.0-rc2'
     // Android supports
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation 'androidx.cardview:cardview:1.0.0'
