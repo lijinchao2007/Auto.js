@@ -10,7 +10,12 @@ import androidx.annotation.RequiresApi
 @RequiresApi(Build.VERSION_CODES.KITKAT)
 fun Context.isOpPermissionGranted(permission: String): Boolean {
     val appOps = getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-    val mode = appOps.checkOpNoThrow(permission, android.os.Process.myUid(), packageName)
+    var mode = 0;
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+        mode = appOps.unsafeCheckOpNoThrow(permission, android.os.Process.myUid(), packageName)
+    }else{
+        mode = appOps.checkOpNoThrow(permission, android.os.Process.myUid(), packageName)
+    }
 
     return if (mode == AppOpsManager.MODE_DEFAULT && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         checkCallingOrSelfPermission(android.Manifest.permission.PACKAGE_USAGE_STATS) == PackageManager.PERMISSION_GRANTED
