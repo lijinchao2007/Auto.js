@@ -89,28 +89,28 @@ android {
 //            jniLibs.srcDirs = ['libs']
 //        }
 //    }
-    packagingOptions{
-        pickFirst 'lib/armeabi/libjackpal-androidterm5.so'
-        pickFirst 'lib/armeabi/libjackpal-termexec2.so'
-    }
+//    packagingOptions{
+//        pickFirst 'lib/armeabi/libjackpal-androidterm5.so'
+//        pickFirst 'lib/armeabi/libjackpal-termexec2.so'
+//    }
 }
 
 
 
 
 repositories {
-//    flatDir {
-//        dirs 'libs'
-//    }
+    flatDir {
+        dirs 'libs'
+    }
     google()
 }
 
 dependencies {
 //    implementation fileTree(include: ['*.?ar'], dir: 'libs')
-    api files('libs/emulatorview-release.aar')
-    api files('libs/libtermexec-release.aar')
-    api files('libs/opencv-3.4.3.aar')
-    api files('libs/term-debug.aar')
+//    api files('libs/emulatorview-release.aar')
+//    api files('libs/libtermexec-release.aar')
+//    api files('libs/opencv-3.4.3.aar')
+//    api files('libs/term-debug.aar')
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1-alpha01', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -187,10 +187,11 @@ dependencies {
     })
     // Android job
     implementation 'com.evernote:android-job:1.2.6'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
-//    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
-//    // Optional, if you use support library fragments:
-//    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+//    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
+    // Optional, if you use support library fragments:
+    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
     implementation project(':automator')
     implementation project(':common')
     implementation project(':autojs')
