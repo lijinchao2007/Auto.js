@@ -1,3 +1,5 @@
+注释更新
+
 # Auto.js
 
 [中文Readme](https://github.com/hyb1996/Auto.js/blob/master/Readme-cn.md)
